@@ -1,0 +1,21 @@
+{
+  "name": "reactv2",
+  "version": "1.0.0",
+  "description": "It contains potential questions which are essential for coding interview.",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest",
+    "start": "npx parcel index.html"
+  },
+  "keywords": [],
+  "author": "Rishav Sah",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
