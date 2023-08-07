@@ -145,6 +145,40 @@ It contains potential questions which are essential for coding interview.
     Both **async** and **defer** attributes in the `<script>` tag loads the script asynchronously. However, the **async** attribute allows the webpage to continue loading while the script it fetched without waiting for the HTML parsing to complete where order of execution is not guranteed. **defer**, on the other hand, defers its execution until after the HTML parsing is complete. Scripts are executed in the order they appear in the document, just before the `DOMContentLoaded` event. Order of execution is guaranteed.
 
     Both **async** and **defer** attributes can improve the performance of your web page by allowing the browser to load and execute external scripts in a non-blocking manner. Use **async** for independent scripts and **defer** for scripts that rely on the DOM or other scripts but can wait until the DOM is fully parsed.
+
+11. ### Explain the differences between git and github?
+    Git is a distributed version control system (VCS) which is widely used by the software developers to track the changes in the source code. It provides features such as efficient collaboration, manage complex projects, and roll back changes if necessary all while maintaining a detailed history of the project's evolution.
+
+    GitHub is a Git hosting service that enables developers to store and manage their Git repositories. With a user-friendly web-based interface, it facilitates version control and collaborative software development. GitHub is widely embraced within the developer community, where projects are showcased among peers and open for contributions through public repositories, primarily focusing on continuous enhancement.
+
+    The above definitions are the basic idea for the terminologies. Please explore in detail for the advance features and functionalities because it can be only understood when it is practically implemented.
+
+12. ### What is npm?
+
+13. ### Explain the differences between package.json and package-lock.json?
+
+14. ### Explain the differences between dependencies and devDependencies?
+
+15. ### What is caret (^) & tilde (~) in package.json dependencies version?
+
+16. ### What are node_modules? Is it good idea to push it on git?
+
+17. ### What is Parcel / Webpack? Why do we need it?
+18. ### What is .parcel-cache directory in the application?
+
+19. ### How Parcel knows about its dependencies when preparing build?
+
+20. ### Explain the differences between dependencies and devDependencies?
+
+21. ### What is the dist directory in the project directory?
+
+22. ### What is browserlist?
+
+23. ### What is npx?
+    
+
+
+
 ## References:
 
 - https://medium.com/@alex_lobera/introduction-to-react-3000e9cbcd26#:~:text=React%20is%20a%20JavaScript%20library,efficient%20way%20using%20declarative%20code.
@@ -153,3 +187,5 @@ It contains potential questions which are essential for coding interview.
 - https://aws.amazon.com/what-is/cdn/
 - https://www.youtube.com/watch?v=IrHmpdORLu8
 - And, can't ignore chatGPT
+
+
