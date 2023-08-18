@@ -235,6 +235,36 @@ It contains potential questions which are essential for coding interview.
     ```bash
     npx create-react-app app-name
     ```
+23. ### Explain `JSX` with its superpowers and exceptions.
+    JSX (JavaScript XML) is a syntax extension for JavaScript that is commonly associated with React, a popular JavaScript library for building user interfaces. JSX allows you to write HTML-like code directly within your JavaScript code, making it easier to create and visualize the structure of user interfaces. It enhances the readability and maintainability of your code, making it more intuitive for developers, especially when dealing with UI components.
+
+    Example:
+    ```jsx
+      const h1 = <h1>React in Depth</h1>;
+      const span = <span>Hello, {user} </span>
+    ```
+
+    JSX superpowers include embedding dynamic expressions within curly braces, facilitating component-based architecture, automatic escaping of values to prevent injection attacks, and enabling concise representation of complex UI structures.
+
+    Exceptions include the need for proper closing tags, potential namespace collisions with HTML attributes (js reserved keywords), the necessity for transpilation to standard JavaScript before browser execution.
+24. ### what is role of `type` attribute in script tag?
+    The `type` attribute specifies the type of the script.
+
+    - `text/javascript` - this is default
+    - `module` - this indicates that script is a module that can import or export other files or modules inside it
+    - `text/typescript` - this indicates that the script is written using `typescript`
+
+    ```html
+    <script type="text/javascript"></script>
+    ```
+25. ### Explain the syntax `{SomeComponent} vs {<SomeComponent />} vs {<SomeComponent></SomeComponent>}`.
+    The above syntax are related to `JSX` and how React handles components and their usage within `JSX`.
+
+    - `{SomeComponent}` - This executes javscript statements but doesn't create an instance of the component because component will only be rendered if enclosed inside angled brackets or chevrons (`{<  />}`) expression.
+    - `{<SomeComponent />}` - It creates an instance of SomeComponent and renders it within JSX.
+    - `{<SomeComponent></SomeComponent>}` - Also, creates an instance of SomeComponent and renders it within JSX and child components are nested inside it if required.
+
+    In summary, the most common cases of `{}` in JSX are Embeding JavaScript Logic, Conditional Rendering, Loop Iteration, Function Calls, etc.
 
 ## References:
 

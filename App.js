@@ -1,19 +1,45 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// created h1 element
-const heading = React.createElement("h1", {
-  // The object contains the attributes for the element
-  className: "heading"
-}, "Let us learn React in Deep");
+import "./index.css";
 
-const paragraph = React.createElement("p", { className: "p-1"}, "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque libero quis, vitae veniam eligendi placeat aliquid reprehenderit vel quae rerum!")
+// React.createElement => Object => HTML Element (When Rendered into the DOM)
+const heading = React.createElement(
+  "h1", // html tag
+  {
+    // Object that contains attributes of the html element
+    id: "heading"
+  },
+  "React in Deep - using React.createElement" // children of the elements or inner content if single element
+);
 
-// created div element and appended h1 as a children
-const container = React.createElement("div", {className: "container"}, [heading, paragraph]);
+// JSX is not HTML or HTML in JS. Moreever, It's HTML-like or XML-like syntax. Babel transpiles it to React.createElement
+const jsxHeading = (
+  <h1 className="title" tabIndex="1">
+    React in Depth using JSX
+  </h1>
+);
 
-// The DOM element where we want to mount the React application
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// React Functional Component
+const Title = () => {
+  return (
+    <h1>React In Deep in JSX - Title Component</h1>
+  );
+};
 
-// Calling root.render() method to render a react element into the DOM.
-root.render(container);
+// Component Composition
+const HeadingComponent = () => {
+  return (
+    <div className="container">
+      { heading }
+      { jsxHeading }
+      <Title />
+      <h2>React In Depth - Functional Component</h2>
+    </div>
+  );
+};
+
+
+const root = ReactDOM.createRoot(document.getElementById("root")); // Whatever happens in react, it will happen inside the root
+
+root.render(<HeadingComponent />);
