@@ -146,38 +146,95 @@ It contains potential questions which are essential for coding interview.
 
     Both **async** and **defer** attributes can improve the performance of your web page by allowing the browser to load and execute external scripts in a non-blocking manner. Use **async** for independent scripts and **defer** for scripts that rely on the DOM or other scripts but can wait until the DOM is fully parsed.
 
-11. ### Explain the differences between git and github?
+11. ### Explain the differences between `git` and `github`?
     Git is a distributed version control system (VCS) which is widely used by the software developers to track the changes in the source code. It provides features such as efficient collaboration, manage complex projects, and roll back changes if necessary all while maintaining a detailed history of the project's evolution.
 
     GitHub is a Git hosting service that enables developers to store and manage their Git repositories. With a user-friendly web-based interface, it facilitates version control and collaborative software development. GitHub is widely embraced within the developer community, where projects are showcased among peers and open for contributions through public repositories, primarily focusing on continuous enhancement.
 
     The above definitions are the basic idea for the terminologies. Please explore in detail for the advance features and functionalities because it can be only understood when it is practically implemented.
 
-12. ### What is npm?
+12. ### What is `npm`?
+    npm is a package manager for the javascript ecosystem that allows developers to easily manage and share code libraries, tools, and other dependencies that are essential for building JavaScript-based applications, whether for the web, server-side, or command-line interfaces. It is primarily associated with the Node.js (a runtime environment for executing javascript code outside of a web browser).
 
-13. ### Explain the differences between package.json and package-lock.json?
+    #### Key features of `npm`
+
+    - **Dependency Management**: npm helps developers manage the dependencies their project rely by automating the process by fetching and installing the required packages from the npm registry. It avoids the manual download, installation and maintenance of the dependencies.
+
+    - **Package Installation**: The packages are installed using simple commands in the terminal. For example, `npm install some-package`.
+
+    - **Package Publishing**: npm allows the developers to publish their own packages to the npm registry, making them available for others to use. This is espeially useful for sharing reuseable code and components with the broader developer community.
+
+    - **Version Control**: npm allows specifying versions of dependencies to ensure consistency acroess different environments. We can specify exact versions, ranges, or use semantic versioning to define compatibility and updates for your project.
+
+    - **Scripts**: npm provides a way to define custom scripts in a project's package.json file. These scripts can be used to automate various tasks, such as building (dev or prod), testing and running of the application.
+
+    - **Global vs. Local Installation**: npm supports both global and local installation of packages. Global packages are installed system-wide and can be accessed from the command line, while local packages are installed in your project's directory and are specific to that project.
+
+    - **Semantic Versioning**: npm uses semantic versioning (SemVer) to indicate how compatible a package version is with other versions. Semantic versioning consists of three numbers separated by dots (e.g., 1.2.3), representing major, minor, and patch versions. Changes in each part of the version number indicate different levels of compatibility and updates.
+
+    - **Lock Files**: npm generates lock files (such as package-lock.json) that record the exact versions of dependencies installed. This ensures that the same package versions are used across different environments and during subsequent installations.
+
+13. ### Explain the differences between `package.json` and `package-lock.json`?
+    package.json is a metadata file in JavaScript projects that describes project details, dependencies, and scripts. It lists dependencies with version ranges and allows running custom tasks. package-lock.json is an automatically generated file that locks down specific dependency versions for consistency across installations, preventing unexpected changes. It includes integrity checks and ensures version reproducibility, enhancing package management reliability.
 
 14. ### Explain the differences between dependencies and devDependencies?
+    Dependencies and devDependencies are two distinct categories of packages listed in the `package.json` file of a javascript project managed with npm.
+    
+    Dependencies are packages that our project relies on to run in a production environment when deployed. They include libraries, modules, or frameworks that our code directly uses when executed. Dependencies are typically required for the core functionality of our application and are essential for its proper operation. When we distribute or deploy our project, these dependencies need to be available and properly installed for our application to work correctly. Examples of dependencies might include server frameworks, utility libraries, and database connectors.
 
-15. ### What is caret (^) & tilde (~) in package.json dependencies version?
+    To install a dependency, we use a command like:
 
-16. ### What are node_modules? Is it good idea to push it on git?
+    ```bash
+    npm install dependency-name
+    ```
+
+    devDependencies, on the other hand, are packages that are only needed during development and testing of our project. They include tools, testing libraries, build scripts, and other resources that assist you in developing, testing, and maintaining your code but are not required for the final production version of your application. devDependencies are not included when your project is deployed or distributed, making your production environment leaner. Examples of devDependencies might include testing frameworks, linters, bundlers, and development server tools.
+
+    To install a devDependency, you would use a command like:
+
+    ```bash
+    npm install --save-dev dev-dependency-name
+    or
+    npm install -D dev-dependency-name
+    ```
+15. ### What is tilde(~) & caret(^) in package.json dependencies version?
+    tilde(~) and caret(^) are two symbols used to specify version ranges in package.json. Tilde(~) allows for patch updates, while caret(^) allows for both minor and patch updates. When deciding which one to use, consider your project’s requirements and use the most restrictive version range that meets those requirements.
+
+16. ### What are `node_modules`? Is it good idea to push it on git?
+    `node_modules` is a directory created by npm to store the dependencies that our project requires. Whenever we install npm package packages, it fetches them from the npm registry and places them in the `node_modules` directory. This directory contains all the code and files needed for the installed packages to work within our project.
+
+    It is generally not a good idea to push the `node_modules` directory to the git repository because of its size, redundancy and version control issues. Yet, the project dependencies are specified in `package.json` file and can be installed it by running the command `npm install` by other developers which is the main purpose of a package manager. We must ignore the `node_modules` by putting it in the `.gitignore` file.
 
 17. ### What is Parcel / Webpack? Why do we need it?
-18. ### What is .parcel-cache directory in the application?
+    `Parcel` or `Webpack` are javascript module bundlers. A modern web development tool that helps to organise and optimise large JavaScript codebases for web applications by combining into one file making it production-ready.
+
+    We need module bundlers for serving several essential purposes. They bundle diverse assets, like JavaScript and stylesheets, into optimized files to reduce HTTP requests and enhance page loading. They facilitate the use of advanced JavaScript features by transpiling code to compatible versions. These tools support modular development, allowing code to be organized into reusable modules and handling dependencies. Additionally, they optimize assets for production through techniques like minification, compression, and code splitting, ensuring a responsive and efficient user experience. In conclusion, Parcel and Webpack are indispensable for managing assets, optimizing performance, and streamlining the development process in web applications, with the choice between them influenced by project complexity and preferences.
+
+18. ### What is `.parcel-cache` directory in the application when using `parcel` bundler?
+    The `.parcel-cache` directory is created by the parcel bundler when it processes and builds your application. It is used to store cached data and intermediate files to improve the speed and efficiency of subsequent builds.
 
 19. ### How Parcel knows about its dependencies when preparing build?
+    Parcel identifies and manages dependencies during the build process by analyzing import statements and entry files. It creates a dependency graph that outlines how different modules and assets are connected. Parcel then resolves module paths, bundles assets, and performs optimizations based on this graph. Dynamic imports and code splitting are supported for efficient loading. Results are cached to speed up future builds. Overall, Parcel automatically handles dependencies and builds optimized bundles for web applications based on the code's structure and references.
 
-20. ### Explain the differences between dependencies and devDependencies?
+20. ### What is the `dist` directory in the project?
+    The `dist` directory within a project contains the optimized and transformed output files intended for deployment or distribution. It typically holds bundled and minified JavaScript, optimized stylesheets, HTML files, images, fonts, and other assets required for the application to run efficiently in a production environment. The `dist` directory marks the end result of a build process, where source code and assets have undergone various transformations to enhance performance, reduce file sizes, and ensure proper paths and configurations. This separation ensures that the deployed application is well-organized, responsive, and ready for use by end-users.
 
-21. ### What is the dist directory in the project directory?
+21. ### What is `browserlist`?
+    `browserslist` is a configuration and query syntax used in web development to specify the range of browser versions your code should support. It's employed by tools like Autoprefixer and Babel to generate code compatible with chosen browsers. By setting guidelines for targeted browser versions, `browserslist` ensures that the generated code includes necessary transformations, like polyfills and transpilation, to maintain cross-browser compatibility. Its flexible syntax allows you to define specific versions, browser families, or usage statistics, helping balance support for different user bases and modern web technologies.
 
-22. ### What is browserlist?
+    ```javascript
+     "browserslist": [
+      "defaults and supports es6-module",
+      "maintained node versions"
+    ]
+    ```
 
-23. ### What is npx?
-    
+22. ### What is `npx`?
+    `npx` is a command-line tool that comes with `npm` and lets you run Node.js packages and executables directly from the command line. It's especially useful for running packages without the need for global installations or adding them to your project dependencies. `npx` fetches and executes the latest version of a package, or you can specify a version if needed. This tool streamlines the execution of commands and scripts from npm packages, making it convenient for quick tasks, testing, and running tools without permanent installations.
 
-
+    ```bash
+    npx create-react-app app-name
+    ```
 
 ## References:
 
@@ -186,6 +243,8 @@ It contains potential questions which are essential for coding interview.
 - https://blog.logrocket.com/virtual-dom-react/
 - https://aws.amazon.com/what-is/cdn/
 - https://www.youtube.com/watch?v=IrHmpdORLu8
-- And, can't ignore chatGPT
+- https://www.atatus.com/blog/package-json-vs-package-lock-json/
+- https://browsersl.ist/
+- ChatGPT
 
 
