@@ -18,8 +18,6 @@ import Footer from "./components/Footer";
  *      - Delivery Time
  * Footer
  *  - Copyright
- *  - Links
- *  - Address
  *  - Contact
  */
 
