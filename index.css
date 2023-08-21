@@ -32,6 +32,11 @@
   border: 1px solid #000;
 }
 
+.filter-btn {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+}
+
 .search {
   margin: 1rem 0;
   text-align: center;

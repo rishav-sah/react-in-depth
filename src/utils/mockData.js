@@ -1,26 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-
-/**
- * Header
- *  - Logo
- *  - Nav Items
- * Body
- *  - Search
- *  - RestrauntContainer
- *  - RestrauntCard
- *      - Img
- *      - Name of restraunt, Star Rating, Cuisine, etc.
- *      - Delivery Time
- * Footer
- *  - Copyright
- *  - Links
- *  - Address
- *  - Contact
- */
-
-const resList = [
+export const resList = [
   {
     "info": {
       "id": "157695",
@@ -32,7 +10,7 @@ const resList = [
       "cuisines": [
         "South Indian"
       ],
-      "avgRating": 4.4,
+      "avgRating": 3.5,
       "veg": true,
       "feeDetails": {
         "restaurantId": "157695",
@@ -51,7 +29,7 @@ const resList = [
         "totalFee": 3900
       },
       "parentId": "6482",
-      "avgRatingString": "4.4",
+      "avgRatingString": "3.5",
       "totalRatingsString": "10K+",
       "sla": {
         "deliveryTime": 33,
@@ -862,82 +840,3 @@ const resList = [
     "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
   }
 ];
-
-const Header = () => {
-  return (
-    <header className="header">
-      <div className="logo-container">
-        <img className="logo" src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png" alt="app-logo" />
-      </div>
-      <nav className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </nav>
-    </header>
-  );
-};
-
-const RestaurantCard = (props) => {
-  const {cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla} = props?.resData?.info;
-  return (
-    <div className="res-card">
-      <div className="res-logo">
-        <img src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`} alt="res-image" />
-      </div>
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{avgRating}</h4>
-      <h4>{costForTwo}</h4>
-      <h4>{sla?.deliveryTime}</h4>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">
-        Search
-      </div>
-      <div className="res-container">
-        {
-          resList.map((restaurant) => <RestaurantCard key={restaurant?.info?.id} resData={restaurant} />)
-        }
-      </div>
-    </div>
-  );
-};
-
-const Footer = () => {
-  return (
-    <div className="footer">
-      <ul>
-        <li>Company Name</li>
-        <li>&copy; Hungry Bundl Technologies Pvt. Ltd</li>
-      </ul>
-      <ul>
-        <li>Help & Support</li>
-        <li>Partner with Us</li>
-        <li>Ride with us</li>
-      </ul>
-    </div>
-  );
-}
-
-const AppLayout = () => {
-  return (
-    <div className="app">
-      <Header />
-      <Body />
-      <Footer />
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root")); // Whatever happens in react, it will happen inside the root
-
-root.render(<AppLayout />);
