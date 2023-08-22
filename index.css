@@ -29,7 +29,27 @@
 }
 
 .body {
-  border: 1px solid #000;
+  border: 1px solid
+   #000;
+}
+
+.filter {
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.search {
+  margin: 1rem;
+}
+
+.search-text {
+  padding: 0.5rem 1rem;
+}
+
+.search-btn {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
 }
 
 .filter-btn {
@@ -51,7 +71,7 @@
 .res-card {
   margin: 0.5rem;
   padding: 0.5rem;
-  max-width: 200px;
+  width: 200px;
   background-color: #F0F0F0;
 }
 
@@ -83,4 +103,22 @@
 
 .footer > ul > li {
   line-height: 2;
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.shimmer-card {
+  margin: 1rem;
+  width: 200px;
+  height: 480px;
+  background-color: #F0F0F0;
+}
+
+.login-btn {
+  padding: 0 1rem;
+  cursor: pointer;
 }
