@@ -5,6 +5,11 @@
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .header {
   width: 100%;
   display: flex;
@@ -118,7 +123,41 @@
   background-color: #F0F0F0;
 }
 
+.shimmer-menu {
+  margin: 1rem auto;
+  padding: 1rem;
+  max-width: 768px;
+  height: 768px;
+  background-color: #F0F0F0;
+}
+
 .login-btn {
   padding: 0 1rem;
   cursor: pointer;
+}
+
+.menu {
+  margin: 1rem auto;
+  padding: 1rem;
+  max-width: 768px;
+  text-align: center;
+  background-color: #F0F0F0;
+}
+
+.menu-cuisines {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.menu-title {
+  text-align: left;
+}
+
+.menu-items {
+  margin: 1.25rem 0;
+  text-align: left;
+}
+
+.menu-items > li {
+  line-height: 1.5;
 }
