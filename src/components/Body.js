@@ -2,49 +2,39 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import useRestaurantList from "../utils/useRestaurantList";
 
 const Body = () => {
   // Local State Variable - Super powerful variable
-  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const listOfRestaurants = useRestaurantList();
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   // Whenever state variable update, React triggers a reconcialiation cycle(re-renders the component) 
-  console.log("Body rendered")
+  console.log("Body rendered");
 
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  const setStateVariable = (jsonData) => {
-    if (!jsonData) return;
-    jsonData.data.cards.map((item) => {
-      if (item.card.card.id == "top_brands_for_you") {
-        setListOfRestaurants(item.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRestaurants(item.card?.card?.gridElements?.infoWithStyle?.restaurants);
-      }
-    });
-  };
-
-  const fetchData = async () => {
-    try {
-      const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.385044&lng=78.486671&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-      const json = await data.json();
-      setStateVariable(json);
-    } catch (err) {
-      console.error("Server Error");
-    }
-  };
+    setFilteredRestaurants(listOfRestaurants);
+  }, [listOfRestaurants]);
 
   const getFilteredRestaurants = () => {
     const filteredRestaurants = listOfRestaurants.filter((res) => res?.info?.avgRating > 4);
-    setListOfRestaurants(filteredRestaurants);
+    setFilteredRestaurants(filteredRestaurants);
   };
 
   const getSearchedRestaurants = () => {
     const searchedRestaurants = listOfRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
     setFilteredRestaurants(searchedRestaurants);
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false) {
+    return (
+      <h1>Looks like you're offline!! Please check your internet connection</h1>
+    );
+  }
 
   return (
     <div className="body">
