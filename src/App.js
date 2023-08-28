@@ -33,7 +33,7 @@ const About = lazy(() => import("./components/About.js"))
 
 const AppLayout = () => {
   return (
-    <div className="app">
+    <div>
       <Header />
       <Outlet />
       <Footer />
