@@ -15,13 +15,11 @@ const Shimmer = ({ item }) => {
         <div className="shimmer-card"></div>
         <div className="shimmer-card"></div>
       </div>
-     );
-  };
+    );
+  }
 
   if (item === "menu") {
-    return (
-      <div className="shimmer-menu"></div>
-    );
+    return <div className="shimmer-menu"></div>;
   }
 };
 
