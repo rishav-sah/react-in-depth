@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { MAIN_API } from "./constant";
 
 const useRestaurantList = () => {
-
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
 
   useEffect(() => {
@@ -23,7 +22,9 @@ const useRestaurantList = () => {
     if (!jsonData) return;
     jsonData.data.cards.map((item) => {
       if (item.card.card.id == "top_brands_for_you") {
-        setListOfRestaurants(item.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setListOfRestaurants(
+          item.card?.card?.gridElements?.infoWithStyle?.restaurants,
+        );
       }
     });
   };

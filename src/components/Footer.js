@@ -1,6 +1,6 @@
 export const Footer = () => {
   return (
-    <div className="p-8 w-full flex justify-center text-white bg-black">
+    <div className="flex w-full justify-center bg-black p-8 text-white">
       <ul className="mx-4">
         <li className="leading-8">Company Name</li>
         <li>&copy; Hungry Bundl Technologies Pvt. Ltd</li>

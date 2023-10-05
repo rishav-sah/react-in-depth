@@ -1,14 +1,23 @@
 import { CDN_URL } from "../utils/constant";
 
 const RestaurantCard = (props) => {
-  const {cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla} = props?.resData?.info;
+  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
+    props?.resData?.info;
   return (
-    <div className="rounded-lg p-4 w-auto shadow-md">
-      <div className="mb-6 w-50 h-40 rounded-md overflow-hidden">
-        <img className="w-full h-full object-cover" src={`${CDN_URL}/${cloudinaryImageId}`} alt="res-image" />
+    <div className="w-auto rounded-lg p-4 shadow-md">
+      <div className="w-50 mb-6 h-40 overflow-hidden rounded-md">
+        <img
+          className="h-full w-full object-cover"
+          src={`${CDN_URL}/${cloudinaryImageId}`}
+          alt="res-image"
+        />
       </div>
-      <h3 className="my-2 text-xl font-semibold whitespace-nowrap overflow-hidden overflow-ellipsis">{name}</h3>
-      <h4 className="my-2 text-sm whitespace-nowrap overflow-hidden overflow-ellipsis">{cuisines.join(", ")}</h4>
+      <h3 className="my-2 overflow-hidden overflow-ellipsis whitespace-nowrap text-xl font-semibold">
+        {name}
+      </h3>
+      <h4 className="my-2 overflow-hidden overflow-ellipsis whitespace-nowrap text-sm">
+        {cuisines.join(", ")}
+      </h4>
       <h4 className="my-2 text-sm">{avgRating}</h4>
       <h4 className="my-2 text-sm">{costForTwo}</h4>
       <h4 className="my-2 text-sm">{sla?.deliveryTime}</h4>
